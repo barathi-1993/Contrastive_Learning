@@ -57,7 +57,7 @@ After training, the encoder has learned a rich representation space where:
 - The geometry reflects visual similarity — without a single labelled example
 
 <p align="center">
-  <img src="images/tsne_clusters.png" width="700" alt="t-SNE visualisation of learned embeddings"/>
+  <img src="images/tsne_clusters.png" width="550" alt="t-SNE visualisation of learned embeddings"/>
   <br/>
   <em>Figure 2: t-SNE visualisation of embeddings learned by contrastive pretraining. Semantically similar images cluster together despite no labels being used during training.</em>
 </p>
