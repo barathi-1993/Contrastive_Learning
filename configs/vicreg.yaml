@@ -1,0 +1,19 @@
+# configs/vicreg.yaml
+_base_: base.yaml
+
+General:
+  model_name: vicreg
+
+Training:
+  epochs: 300
+  batch_size: 256
+  optimizer: lars
+  learning_rate: 0.2
+  weight_decay: 1.0e-6
+
+VICReg:
+  projection_dim: 8192
+  projection_hidden_dim: 8192
+  sim_coeff: 25.0
+  std_coeff: 25.0
+  cov_coeff: 1.0

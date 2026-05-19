@@ -1,0 +1,21 @@
+# configs/mocov3.yaml
+_base_: base.yaml
+
+General:
+  model_name: mocov3
+
+Training:
+  epochs: 300
+  batch_size: 256
+  optimizer: adamw
+  learning_rate: 1.5e-4
+  weight_decay: 0.1
+  warmup_epochs: 40
+  scheduler: cosine
+
+MoCoV3:
+  projection_dim: 256
+  projection_hidden_dim: 4096
+  prediction_hidden_dim: 4096
+  temperature: 0.2
+  ema_decay: 0.99

@@ -1,0 +1,29 @@
+# configs/ibot.yaml  — iBOT: Image BERT Pre-Training with Online Tokenizer
+_base_: base.yaml
+
+General:
+  model_name: ibot
+
+Backbone:
+  name: vit_s                        # iBOT is ViT-native
+  out_dim: 384
+
+Training:
+  epochs: 300
+  batch_size: 64
+  optimizer: adamw
+  learning_rate: 5.0e-4
+  weight_decay: 0.04
+  warmup_epochs: 10
+  clip_grad_norm: 3.0
+
+iBOT:
+  out_dim: 8192
+  projection_hidden_dim: 2048
+  bottleneck_dim: 256
+  patch_out_dim: 8192
+  student_temp: 0.1
+  teacher_temp: 0.04
+  ema_decay: 0.996
+  mask_ratio: 0.1                    # fraction of patches masked
+  pred_ratio: 0.3

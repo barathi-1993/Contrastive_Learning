@@ -1,0 +1,56 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# configs/base.yaml  —  shared defaults inherited by all model configs
+# Override any field via --options KEY=VALUE at the command line
+# ─────────────────────────────────────────────────────────────────────────────
+
+General:
+  seed: 42
+  num_workers: 4
+  mixed_precision: true              # AMP (torch.cuda.amp)
+  gradient_accumulation_steps: 4
+  compile: false                     # torch.compile (PyTorch 2.x) 
+  device: 0                          # GPU index; use -1 for CPU
+
+Dataset:
+  train_dir: /path/to/train_images   # root folder, scanned recursively
+  val_dir:   null                    # optional; if null, no val loop
+  test_dir:  /path/to/test_images
+  infer_dir: /path/to/infer_images
+  image_size: 256
+  extensions: [png, jpg, jpeg, bmp, tiff]
+
+Augmentation:
+  # Applied to both views during contrastive pretraining
+  random_resized_crop: true
+  crop_scale: [0.2, 1.0]
+  horizontal_flip: true
+  color_jitter: true
+  color_jitter_strength: 0.4        # brightness/contrast/saturation each
+  color_jitter_hue: 0.1
+  color_jitter_prob: 0.8
+  grayscale_prob: 0.2
+  gaussian_blur_prob: 0.5
+  gaussian_blur_sigma: [0.1, 2.0]
+  normalize_mean: [0.485, 0.456, 0.406]
+  normalize_std:  [0.229, 0.224, 0.225]
+
+Training:
+  epochs: 100
+  batch_size: 256
+  optimizer: adamw                   # adam | adamw | sgd | lars
+  learning_rate: 3.0e-4
+  weight_decay: 1.0e-4
+  warmup_epochs: 10
+  scheduler: cosine                  # cosine | step | plateau | none
+  min_lr: 1.0e-6
+  clip_grad_norm: 1.0
+
+Backbone:
+  name: resnet50                     # resnet18 | resnet50 | vit_s | vit_b
+  pretrained: false                  # load ImageNet weights as init
+  out_dim: 2048                      # encoder output dimension
+
+Logs:
+  log_root_dir: logs/
+  save_every_n_epochs: 10
+  keep_best_k: 3                     # keep top-k checkpoints by val loss

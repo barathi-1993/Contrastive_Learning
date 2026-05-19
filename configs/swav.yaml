@@ -1,0 +1,28 @@
+# configs/swav.yaml
+_base_: base.yaml
+
+General:
+  model_name: swav
+
+Training:
+  epochs: 300
+  batch_size: 256
+  optimizer: lars
+  learning_rate: 0.6
+  weight_decay: 1.0e-6
+  warmup_epochs: 10
+
+SwAV:
+  projection_dim: 128
+  projection_hidden_dim: 2048
+  n_prototypes: 3000
+  sinkhorn_iterations: 3
+  sinkhorn_epsilon: 0.05
+  temperature: 0.1
+  n_crops: 2
+  n_small_crops: 6
+  crops_size: [224, 96]
+  crops_scale: [[0.14, 1.0], [0.05, 0.14]]
+  queue_length: 3840
+  queue_start_epoch: 15
+  freeze_prototypes_epochs: 1

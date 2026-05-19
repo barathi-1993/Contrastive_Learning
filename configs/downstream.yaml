@@ -1,0 +1,48 @@
+# configs/downstream.yaml — fine-tuning and downstream task configuration
+_base_: base.yaml
+
+Downstream:
+  task: linear_probe               # linear_probe | finetune | clustering | visualize
+
+  # Shared
+  checkpoint: /path/to/pretrained.pth
+  freeze_backbone: true            # false for full fine-tuning
+  embed_batch_size: 128
+  embed_num_workers: 8
+
+  # Classification (linear_probe / finetune)
+  num_classes: 9
+  classifier_hidden_dim: null      # null = single linear layer
+  classifier_dropout: 0.0
+  label_csv: null                  # optional CSV: path,label per row
+                                   # if null, folder names are used as labels
+
+  Training:
+    epochs: 50
+    batch_size: 64
+    optimizer: adamw
+    learning_rate: 1.0e-3
+    weight_decay: 1.0e-4
+    scheduler: cosine
+    warmup_epochs: 5
+
+  # Clustering
+  Clustering:
+    algorithm: kmeans              # kmeans | agglomerative | dbscan
+    n_clusters: 9
+    auto_k: false                  # find optimal k via elbow method
+    max_k: 20
+    partial_ratio: null            # null = use all; 0.5 = use 50 % of samples
+    seed: 42
+
+  # Visualisation
+  Visualization:
+    method: tsne                   # tsne | umap | pca
+    tsne_perplexity: 30
+    tsne_n_iter: 1000
+    umap_n_neighbors: 15
+    umap_min_dist: 0.1
+    n_components: 2
+    plot_sample_images: true
+    n_sample_images_per_cluster: 25
+    output_dir: outputs/visualizations
