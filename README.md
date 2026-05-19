@@ -34,7 +34,7 @@
 **Contrastive learning** is a family of self-supervised representation learning techniques that train deep neural networks to produce meaningful feature embeddings **without any human-provided labels**. The core idea is elegantly simple: teach the model that different views of the same image should be represented similarly, while different images should be represented differently.
 
 <p align="center">
-  <img src="images/contrastive_learning.png" width="800" alt="Contrastive Learning Overview"/>
+  <img src="images/contrastive_learning.jpg" width="800" alt="Contrastive Learning Overview"/>
   <br/>
   <em>Figure 1: Contrastive learning pulls together representations of augmented views of the same image (positive pairs) while pushing apart representations of different images (negative pairs).</em>
 </p>
