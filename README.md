@@ -34,7 +34,7 @@
 **Contrastive learning** is a family of self-supervised representation learning techniques that train deep neural networks to produce meaningful feature embeddings **without any human-provided labels**. The core idea is elegantly simple: teach the model that different views of the same image should be represented similarly, while different images should be represented differently.
 
 <p align="center">
-  <img src="images/contrastive_learning_overview.png" width="800" alt="Contrastive Learning Overview"/>
+  <img src="images/contrastive_learning.png" width="800" alt="Contrastive Learning Overview"/>
   <br/>
   <em>Figure 1: Contrastive learning pulls together representations of augmented views of the same image (positive pairs) while pushing apart representations of different images (negative pairs).</em>
 </p>
@@ -47,12 +47,7 @@ Given an image, two random augmented views — called a **positive pair** — ar
 - **Negative pairs** (different images) → dissimilar representations
 
 More recent methods such as BYOL and DINO eliminate the need for explicit negative pairs entirely, instead using a **teacher–student** or **momentum-updated** architecture that prevents representation collapse.
-
-<p align="center">
-  <img src="images/augmentation_views.png" width="700" alt="Two augmented views of the same image"/>
-  <br/>
-  <em>Figure 2: Two augmented views of the same image form a positive pair. The encoder maps both to nearby points in embedding space during training.</em>
-</p>
+ 
 
 ### The embedding space
 
@@ -62,9 +57,9 @@ After training, the encoder has learned a rich representation space where:
 - The geometry reflects visual similarity — without a single labelled example
 
 <p align="center">
-  <img src="images/embedding_space.png" width="700" alt="t-SNE visualisation of learned embeddings"/>
+  <img src="images/tsne_clusters.png" width="700" alt="t-SNE visualisation of learned embeddings"/>
   <br/>
-  <em>Figure 3: t-SNE visualisation of embeddings learned by contrastive pretraining. Semantically similar images cluster together despite no labels being used during training.</em>
+  <em>Figure 2: t-SNE visualisation of embeddings learned by contrastive pretraining. Semantically similar images cluster together despite no labels being used during training.</em>
 </p>
 
 ---
