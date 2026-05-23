@@ -9,7 +9,7 @@
 [![Tasks](https://img.shields.io/badge/Downstream-Classification%20%7C%20Clustering%20%7C%20Visualisation-red?style=flat-square)](#downstream-tasks)
 
 ---
-
+  
 ## Table of Contents
 
 - [What is Contrastive Learning?](#what-is-contrastive-learning)
