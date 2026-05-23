@@ -8,7 +8,7 @@
 [![Methods](https://img.shields.io/badge/Methods-8%20SSL%20Algorithms-purple?style=flat-square)](#implemented-methods)
 [![Tasks](https://img.shields.io/badge/Downstream-Classification%20%7C%20Clustering%20%7C%20Visualisation-red?style=flat-square)](#downstream-tasks)
 
----
+---  
   
 ## Table of Contents
 
