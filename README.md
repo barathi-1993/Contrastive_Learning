@@ -1,4 +1,4 @@
-# 🧠 ContrastiveLearn — Unified Self-Supervised Representation Learning Framework
+# 🧠 ContrastiveLearn — Unified Self-Supervised Representation Learning Framework   
 
 > A modular, production-ready framework for contrastive and self-supervised pretraining — supporting 8 state-of-the-art methods, flexible backbone encoders, and built-in downstream tasks including classification, clustering, and visualisation.
 
